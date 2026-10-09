@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pizzeria Montalto Frankfurt – Pizza, Pasta &amp; Salate im Europaviertel</title>
+  <meta name="description" content="Pizzeria Montalto in der Europa-Allee 43, Frankfurt am Main: Pizza, Pasta und Salate. Speisekarte, Öffnungszeiten und Telefon für Bestellung und Reservierung.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:type" content="restaurant">
+  <meta property="og:title" content="Pizzeria Montalto Frankfurt">
+  <meta property="og:description" content="Pizza, Pasta und Salate im Frankfurter Europaviertel. Seit 2009.">
+  <meta property="og:image" content="assets/img/logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/pagella-italic.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/standorte.js" defer></script>
+  <script src="assets/js/speisekarte.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body data-standort="frankfurt" data-root="">
+
+<a class="skip" href="#speisekarte">Zur Speisekarte springen</a>
+
+<header class="kopf">
+  <div class="wrap">
+    <a class="kopf-logo" href="./" aria-label="Pizzeria Montalto, Startseite">
+      <img src="assets/img/logo.png" alt="" width="46" height="46">
+      <span>Montalto</span>
+    </a>
+    <nav class="standort-wahl" aria-label="Standort wählen">
+      <a href="./" aria-current="page">Frankfurt</a>
+      <a href="oberursel/">Oberursel</a>
+    </nav>
+    <nav class="kopf-nav" aria-label="Hauptmenü">
+      <a href="#speisekarte">Speisekarte</a>
+      <a href="#besuch">Adresse &amp; Zeiten</a>
+      <a class="btn btn--gold" data-tel href="tel:+496998191775">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+        <span data-fill="telAnzeige">069 98191775</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="inhalt">
+
+  <section class="hero" aria-labelledby="hero-titel">
+    <div class="wrap">
+      <div class="hero-inhalt">
+        <div class="hero-text">
+          <p class="hero-lead">Pizza, Pasta und Salate im Frankfurter Europaviertel. Montalto gibt es seit 2009.</p>
+          <p class="status" data-status aria-live="polite">Öffnungszeiten werden geladen</p>
+          <div class="hero-cta">
+            <a class="btn btn--gold" href="#speisekarte">Speisekarte ansehen</a>
+            <a class="btn" data-tel href="tel:+496998191775">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+              Anrufen
+            </a>
+          </div>
+        </div>
+        <img class="hero-logo" src="assets/img/logo.png" alt="Logo der Pizzeria Montalto, seit 2009" width="230" height="230">
+      </div>
+    </div>
+    <h1 id="hero-titel" class="wrap"><span class="sr-only">Pizzeria </span><span class="marke">Montalto</span><span class="sr-only"> in Frankfurt am Main</span></h1>
+  </section>
+
+  <section class="abschnitt haus" aria-labelledby="haus-titel">
+    <div class="wrap">
+      <div class="abschnitt-kopf">
+        <h2 id="haus-titel" class="abschnitt-titel">Drei Gerichte tragen unseren Namen</h2>
+        <p>Wer zum ersten Mal bei uns isst, fängt am besten mit einem davon an.</p>
+      </div>
+      <div class="haus-reihe" id="haus-reihe"></div>
+    </div>
+  </section>
+
+  <section class="abschnitt karte" id="speisekarte" aria-labelledby="karte-titel">
+    <div class="wrap">
+      <div class="abschnitt-kopf">
+        <h2 id="karte-titel" class="abschnitt-titel">Speisekarte</h2>
+        <p>Zum Bestellen oder Reservieren reicht ein Anruf unter <a data-tel href="tel:+496998191775"><span data-fill="telAnzeige">069 98191775</span></a>. Am schnellsten geht es mit der Nummer des Gerichts.</p>
+      </div>
+    </div>
+    <div id="karte-inhalt">
+      <noscript><div class="wrap"><p>Die Speisekarte braucht JavaScript. Telefonisch helfen wir gern weiter: 069 98191775.</p></div></noscript>
+    </div>
+    <div class="wrap karte-fuss">
+      <div class="legende">
+        <span><svg class="icon icon--veg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5C11 3 4.5 8 4.5 15.2c0 1.6.4 3 1.1 4.3L3.3 21.8l1.1 1.1 2.4-2.4c1.2.6 2.6 1 4 1 7.4 0 11.4-7.6 9.7-18zM8.2 17.6c2.6-4.4 5.5-7.3 9.2-9.6-3.1 3-5.6 6.2-7.7 10.6-.5-.3-1-.6-1.5-1z"/></svg> vegetarisch</span>
+        <span><svg class="icon icon--scharf" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.6 2.3c-.8.6-1.2 1.6-1.1 2.6-1.4.3-2.4 1.4-2.6 2.8C9.2 10.9 5.6 15.6 2.5 18.4c-.6.5-.3 1.5.5 1.6 7.8 1.2 15.4-3 17.4-9.6.5-1.6-.2-3.1-1.6-3.9-.1-1.1-.8-2-1.8-2.4 0-.6.3-1.1.8-1.4l-2.2-.4zm1.7 4.4c.6 0 1.1.3 1.4.8-1-.1-2 .2-2.8.8.2-.9.8-1.6 1.4-1.6z"/></svg> scharf</span>
+      </div>
+      <p>Informationen zu Allergenen und Zusatzstoffen gibt es bei unserem Team. Alle Preise in Euro inkl. MwSt.</p>
+    </div>
+  </section>
+
+  <section class="abschnitt besuch" id="besuch" aria-labelledby="besuch-titel">
+    <div class="wrap">
+      <div class="abschnitt-kopf">
+        <h2 id="besuch-titel" class="abschnitt-titel">Adresse und Öffnungszeiten</h2>
+      </div>
+      <div class="besuch-raster">
+        <div>
+          <address class="adresse">
+            <span data-fill="strasse">Europa-Allee 43</span>
+            <span data-fill="plzOrt">60327 Frankfurt am Main</span>
+          </address>
+          <p class="status" data-status>Öffnungszeiten werden geladen</p>
+          <div class="besuch-cta">
+            <a class="btn btn--gold" data-maps href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+              Route planen
+            </a>
+            <a class="btn" data-tel href="tel:+496998191775"><span data-fill="telAnzeige">069 98191775</span></a>
+          </div>
+          <p class="besuch-hinweis">Die Route öffnet Google Maps in einem neuen Fenster.</p>
+        </div>
+        <div>
+          <h3 class="zeiten-titel">Öffnungszeiten</h3>
+          <table class="zeiten">
+            <caption class="sr-only">Öffnungszeiten Frankfurt</caption>
+            <tbody data-zeiten></tbody>
+          </table>
+        </div>
+      </div>
+
+      <aside class="anderer-standort" aria-labelledby="anders-titel">
+        <img src="assets/img/logo.png" alt="" width="74" height="74">
+        <div>
+          <h3 id="anders-titel">Montalto gibt es auch in Oberursel</h3>
+          <p><span data-loc="oberursel" data-fill="strasse">Industriestraße 7</span>, <span data-loc="oberursel" data-fill="plzOrt">61440 Oberursel (Taunus)</span></p>
+          <p class="status" data-loc="oberursel" data-status></p>
+        </div>
+        <a class="btn" href="oberursel/">Zum Restaurant in Oberursel</a>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+<footer class="fuss">
+  <div class="wrap">
+    <div class="fuss-raster">
+      <div class="fuss-marke">
+        <img src="assets/img/logo.png" alt="" width="72" height="72">
+        <p>Pizzeria Montalto<br>seit 2009</p>
+      </div>
+      <div>
+        <h4>Frankfurt am Main</h4>
+        <address>
+          <span data-loc="frankfurt" data-fill="strasse">Europa-Allee 43</span><br>
+          <span data-loc="frankfurt" data-fill="plzOrt">60327 Frankfurt am Main</span><br>
+          <a data-loc="frankfurt" data-tel href="tel:+496998191775"><span data-loc="frankfurt" data-fill="telAnzeige">069 98191775</span></a>
+        </address>
+      </div>
+      <div>
+        <h4><a href="oberursel/">Oberursel (Taunus)</a></h4>
+        <address>
+          <span data-loc="oberursel" data-fill="strasse">Industriestraße 7</span><br>
+          <span data-loc="oberursel" data-fill="plzOrt">61440 Oberursel (Taunus)</span><br>
+          <a data-loc="oberursel" data-tel href="tel:+4961722663244"><span data-loc="oberursel" data-fill="telAnzeige">06172 2663244</span></a>
+        </address>
+      </div>
+    </div>
+    <div class="fuss-unten">
+      <span>© <span data-jahr>2026</span> Pizzeria Montalto</span>
+      <nav aria-label="Rechtliches">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<nav class="aktionsleiste" aria-label="Schnellzugriff">
+  <a class="btn" href="#speisekarte">Speisekarte</a>
+  <a class="btn" data-maps href="#" target="_blank" rel="noopener">Route</a>
+  <a class="btn btn--gold" data-tel href="tel:+496998191775">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+    Anrufen
+  </a>
+</nav>
+
+</body>
+</html>
