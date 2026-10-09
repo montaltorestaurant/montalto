@@ -17,6 +17,7 @@ window.STANDORTE = {
     plz: "60327",
     ort: "Frankfurt am Main",
     telAnzeige: "069 98191775",
+    instagram: "montaltoffm",
     tel: "+496998191775",
     seite: "",              // Hauptseite
     reservierung: true,
@@ -39,6 +40,7 @@ window.STANDORTE = {
     plz: "61440",
     ort: "Oberursel (Taunus)",
     telAnzeige: "06172 2663244",
+    instagram: "montalto_pizza",
     tel: "+4961722663244",
     seite: "oberursel/",
     reservierung: false,    // laut Google: keine Reservierungen

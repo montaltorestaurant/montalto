@@ -31,11 +31,13 @@
   $$("[data-fill]").forEach(function (el) {
     var s = ort(el); if (!s) return;
     var key = el.getAttribute("data-fill");
-    var wert = key === "plzOrt" ? s.plz + " " + s.ort : s[key];
+    var wert = key === "plzOrt" ? s.plz + " " + s.ort : key === "insta" ? "@" + s.instagram : s[key];
     if (wert != null) el.textContent = wert;
   });
   $$("[data-tel]").forEach(function (el) { var s = ort(el); if (s) el.href = "tel:" + s.tel; });
   $$("[data-maps]").forEach(function (el) { var s = ort(el); if (s) el.href = mapsUrl(s); });
+  function instaUrl(s) { return "https://www.instagram.com/" + s.instagram + "/"; }
+  $$("[data-insta]").forEach(function (el) { var s = ort(el); if (s && s.instagram) el.href = instaUrl(s); });
 
   /* ---------- Öffnungszeiten ---------- */
 
@@ -129,6 +131,7 @@
       address: { "@type": "PostalAddress", streetAddress: s.strasse, postalCode: s.plz, addressLocality: s.ort, addressCountry: "DE" },
       openingHoursSpecification: spec,
       hasMap: mapsUrl(s),
+      sameAs: s.instagram ? [instaUrl(s)] : [],
       url: location.href.split("#")[0]
     };
     var tag = document.createElement("script");

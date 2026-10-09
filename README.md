@@ -16,6 +16,8 @@ Statische Webseite für GitHub Pages. Keine Cookies, kein Tracking, Schriften li
 
 Die Öffnungszeiten steuern auch die Live-Anzeige „Jetzt geöffnet“ (deutsche Zeit).
 
+Wichtig: Nach Änderungen an CSS oder JS in allen HTML-Dateien die Nummer hinter `?v=` erhöhen (z. B. `?v=20261009b` → `?v=20261010a`). Sonst zeigen Handys noch die alte Version aus dem Zwischenspeicher.
+
 ## Veröffentlichen
 
 1. Alle Dateien in das Repository hochladen (Hauptverzeichnis, inkl. `.nojekyll`).

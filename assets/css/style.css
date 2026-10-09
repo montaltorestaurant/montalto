@@ -74,6 +74,7 @@ body {
 }
 
 img, svg { display: block; max-width: 100%; }
+img { height: auto; }
 a { color: inherit; }
 p { margin: 0 0 1em; }
 h1, h2, h3, h4 { margin: 0; font-weight: 400; }
@@ -197,7 +198,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
   margin-bottom: 22px;
 }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
-.hero-logo { width: clamp(150px, 17vw, 230px); }
+.hero-logo { width: clamp(150px, 17vw, 230px); height: auto; aspect-ratio: 1; }
 
 .status {
   display: inline-flex; align-items: center; gap: 10px;
@@ -230,7 +231,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
 @media (max-width: 700px) {
   .hero { min-height: calc(100svh - 68px - env(safe-area-inset-bottom)); }
   .hero-inhalt { grid-template-columns: 1fr; gap: 20px; }
-  .hero-logo { order: -1; width: 120px; }
+  .hero-logo { order: -1; width: 120px; height: 120px; }
   .hero-cta .btn { flex: 1 1 auto; }
   .hero::before { width: 90vw; right: -40vw; top: 10vh; }
   .hero::after { display: none; }
@@ -425,7 +426,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
 
 /* ---------- Besuch ---------- */
 
-.besuch { border-top: 1px solid var(--linie-zart); }
+.besuch { border-top: 1px solid var(--linie-zart); padding-bottom: clamp(56px, 7vw, 96px); }
 .besuch-raster { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(40px, 7vw, 110px); align-items: start; }
 
 .adresse {
@@ -456,7 +457,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
   margin-top: clamp(64px, 9vw, 110px);
   display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 24px 36px;
   padding: 30px clamp(20px, 3vw, 40px); border: 1px solid var(--linie);
-  background: linear-gradient(100deg, rgba(110, 74, 38, .2), rgba(0, 0, 0, 0) 60%);
+  background: var(--schwarz);
 }
 .anderer-standort img { width: 74px; height: 74px; }
 .anderer-standort h3 {
@@ -472,6 +473,43 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
   .anderer-standort img { width: 56px; height: 56px; }
   .anderer-standort .btn { width: 100%; }
 }
+
+/* ---------- Instagram ---------- */
+
+.icon-insta {
+  display: inline-block; width: 18px; height: 18px; flex: none; background: currentColor;
+  -webkit-mask: url("../img/icon-instagram.png") center / contain no-repeat;
+  mask: url("../img/icon-instagram.png") center / contain no-repeat;
+}
+
+.insta { border-top: 1px solid var(--linie-zart); padding-block: clamp(64px, 9vw, 120px); }
+.insta .abschnitt-titel { margin-bottom: clamp(32px, 5vw, 56px); }
+.insta-reihe { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--linie); border-bottom: 1px solid var(--linie); }
+.insta-link {
+  display: flex; flex-direction: column; gap: 8px; padding: 30px 24px 32px 0; text-decoration: none; min-width: 0;
+}
+.insta-link + .insta-link { padding-left: clamp(24px, 4vw, 56px); border-left: 1px solid var(--linie); }
+.insta-ort { font-family: var(--cond); font-size: 1.05rem; color: var(--bronze); }
+.insta-handle {
+  display: flex; align-items: center; gap: .4em; min-width: 0;
+  font-family: var(--serif); font-style: italic; font-size: clamp(1.7rem, 3.4vw, 2.9rem); line-height: 1.15;
+  color: var(--champagner);
+}
+.insta-handle .icon-insta { width: .78em; height: .78em; color: var(--gold); }
+.insta-handle .name { overflow: hidden; text-overflow: ellipsis; padding-right: .1em; }
+.insta-link:hover .name, .insta-link:focus-visible .name {
+  background: var(--metall); background-size: 200% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+@media (max-width: 700px) {
+  .insta-reihe { grid-template-columns: 1fr; }
+  .insta-link { padding: 24px 0; }
+  .insta-link + .insta-link { padding-left: 0; border-left: 0; border-top: 1px solid var(--linie); }
+}
+
+.fuss-insta { display: inline-flex; align-items: center; gap: 8px; margin-top: 4px; }
+.fuss-insta .icon-insta { width: 15px; height: 15px; color: var(--gold); }
 
 /* ---------- Fußzeile ---------- */
 
