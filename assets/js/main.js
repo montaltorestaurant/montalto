@@ -125,7 +125,7 @@
       telephone: s.tel,
       servesCuisine: ["Italienisch", "Pizza", "Pasta"],
       priceRange: "€",
-      acceptsReservations: true,
+      acceptsReservations: s.reservierung !== false,
       address: { "@type": "PostalAddress", streetAddress: s.strasse, postalCode: s.plz, addressLocality: s.ort, addressCountry: "DE" },
       openingHoursSpecification: spec,
       hasMap: mapsUrl(s),
