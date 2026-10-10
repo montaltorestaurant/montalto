@@ -23,13 +23,16 @@ Wichtig: Nach Änderungen an CSS oder JS in allen HTML-Dateien die Nummer hinter
 1. Alle Dateien in das Repository hochladen (Hauptverzeichnis, inkl. `.nojekyll`).
 2. Repository → **Settings → Pages** → Source: *Deploy from a branch* → `main` / `(root)`.
 
-## Domain verbinden
+## Domain verbinden (restaurant-montalto.de bei STRATO)
 
-1. **Settings → Pages → Custom domain**: Domain eintragen, speichern.
-2. Beim Domain-Anbieter DNS setzen:
-   - `A`-Records für die Hauptdomain: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - `CNAME` für `www`: `DEIN-GITHUB-NAME.github.io`
-3. Wenn das Zertifikat da ist: **Enforce HTTPS** anhaken.
+1. GitHub → Repository → **Settings → Pages → Custom domain**: `restaurant-montalto.de` eintragen, **Save**.
+2. STRATO-Login → **Domains → Domainverwaltung** → Zahnrad bei der Domain → Reiter **DNS**:
+   - **A-Record verwalten** → *Eigene IP-Adresse* → `185.199.108.153`
+   - **AAAA-Record verwalten** → *Eigene IP-Adresse* → `2606:50c0:8000::153`
+3. Subdomain `www` (ggf. erst anlegen) → **DNS-Verwaltung → CNAME-Record verwalten** → `montaltorestaurant.github.io`
+4. Warten (bis 24 h), dann in GitHub **Enforce HTTPS** anhaken.
+
+Die Datei `CNAME` im Hauptverzeichnis enthält die Domain und muss im Repository bleiben.
 
 ## Vor dem Livegang
 
