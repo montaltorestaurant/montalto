@@ -11,7 +11,9 @@ Statische Webseite für GitHub Pages. Keine Cookies, kein Tracking, Schriften li
 | Was | Datei |
 |---|---|
 | Adresse, Telefon, Öffnungszeiten (beide Standorte) | `assets/js/standorte.js` |
-| Gerichte, Zutaten, Preise | `assets/js/speisekarte.js` |
+| Gerichte, Zutaten, Preise (`ffm` = Frankfurt, `ou` = Oberursel) | `assets/js/speisekarte.js` |
+| Liefergebühren Oberursel | `assets/js/standorte.js` |
+| Fotos (WebP, je 3 Größen) | `assets/img/fotos/` |
 | Farben, Abstände, Schriften | `assets/css/style.css` |
 
 Die Öffnungszeiten steuern auch die Live-Anzeige „Jetzt geöffnet“ (deutsche Zeit).
