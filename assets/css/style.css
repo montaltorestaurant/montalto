@@ -144,6 +144,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
 
 .standort-wahl {
   display: inline-flex; padding: 3px; border: 1px solid var(--linie); border-radius: 999px;
+  background: rgba(0, 0, 0, .55); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
   font-family: var(--cond); font-size: .98rem;
 }
 .standort-wahl a {
@@ -174,31 +175,42 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
   justify-content: flex-end; padding-top: calc(var(--kopf-h) + 32px); overflow: hidden;
   isolation: isolate;
 }
-.hero::before, .hero::after {
-  content: ""; position: absolute; z-index: -1; pointer-events: none;
-  background-repeat: no-repeat; background-size: contain; opacity: .26;
-}
-.hero::before {
-  background-image: url("../img/linie-pizza.svg");
-  width: min(58vw, 640px); aspect-ratio: 1; right: -9vw; top: 6vh;
-  transform: rotate(-12deg);
-}
 .hero::after {
-  background-image: url("../img/linie-tomate.svg");
-  width: min(34vw, 380px); aspect-ratio: 1; left: -6vw; top: 18vh; opacity: .16;
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  background: url("../img/linie-tomate.svg") no-repeat center / contain;
+  width: min(34vw, 380px); aspect-ratio: 1; left: -6vw; top: 18vh; opacity: .14;
 }
+
+/* Foto rechts, läuft weich ins Schwarz aus */
+.hero-bild {
+  position: absolute; top: 0; right: 0; bottom: 0; width: min(44vw, 760px);
+  margin: 0; z-index: -1;
+}
+.hero-foto { width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; }
+.hero-bild::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    linear-gradient(90deg, #000 0%, rgba(0, 0, 0, .7) 14%, rgba(0, 0, 0, 0) 42%),
+    linear-gradient(0deg, #000 0%, rgba(0, 0, 0, .75) 20%, rgba(0, 0, 0, 0) 48%),
+    linear-gradient(180deg, rgba(0, 0, 0, .7) 0%, rgba(0, 0, 0, 0) 20%);
+}
+.hero-siegel {
+  position: absolute; z-index: 2; left: -72px; top: 30%;
+  width: clamp(120px, 11vw, 168px); height: auto; aspect-ratio: 1;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, .65));
+}
+@media (max-width: 1100px) { .hero-siegel { display: none; } }
 
 .hero-inhalt {
   display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 32px;
   padding-bottom: clamp(8px, 2vw, 24px);
 }
-.hero-text { max-width: 34rem; }
+.hero-text { max-width: min(34rem, 50vw); }
 .hero-lead {
   font-size: clamp(1.2rem, 1.6vw, 1.45rem); line-height: 1.5; color: var(--champagner);
   margin-bottom: 22px;
 }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
-.hero-logo { width: clamp(150px, 17vw, 230px); height: auto; aspect-ratio: 1; }
 
 .status {
   display: inline-flex; align-items: center; gap: 10px;
@@ -218,6 +230,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
   background: var(--metall); background-size: 240% 100%; background-position: 0% 0;
   -webkit-background-clip: text; background-clip: text; color: transparent;
   white-space: nowrap;
+  filter: drop-shadow(0 6px 26px rgba(0, 0, 0, .6));
 }
 @media (prefers-reduced-motion: no-preference) {
   .marke { animation: glanz 3.2s cubic-bezier(.2, .7, .2, 1) .25s both; }
@@ -229,12 +242,22 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
 }
 
 @media (max-width: 700px) {
-  .hero { min-height: calc(100svh - 68px - env(safe-area-inset-bottom)); }
-  .hero-inhalt { grid-template-columns: 1fr; gap: 20px; }
-  .hero-logo { order: -1; width: 120px; height: 120px; }
-  .hero-cta .btn { flex: 1 1 auto; }
-  .hero::before { width: 90vw; right: -40vw; top: 10vh; }
+  .hero { min-height: 0; padding-top: 0; justify-content: flex-start; }
   .hero::after { display: none; }
+  .hero-bild { position: relative; width: 100%; height: min(64svh, 600px); z-index: auto; order: 0; }
+  .hero-foto { object-position: 50% 70%; }
+  .hero-bild::after {
+    background:
+      linear-gradient(0deg, #000 0%, rgba(0, 0, 0, .6) 22%, rgba(0, 0, 0, 0) 50%),
+      linear-gradient(180deg, rgba(0, 0, 0, .7) 0%, rgba(0, 0, 0, 0) 24%);
+  }
+  .hero-siegel { left: auto; right: var(--rand); top: auto; bottom: 26%; width: 96px; }
+  .hero > h1 { order: 1; position: relative; z-index: 2; margin-top: -.62em; font-size: clamp(4.6rem, 24.4vw, 22rem); }
+  .hero > h1 .marke { font-size: inherit; margin-top: 0; }
+  .hero > .wrap:not(h1) { order: 2; }
+  .hero-inhalt { grid-template-columns: 1fr; gap: 20px; padding: 6px 0 40px; }
+  .hero-text { max-width: none; }
+  .hero-cta .btn { flex: 1 1 auto; }
 }
 
 /* ---------- Abschnitte ---------- */
@@ -423,6 +446,31 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
   .tafel { padding-top: 56px; }
   .tafeln { gap: 72px; }
 }
+
+/* ---------- Bildband ---------- */
+
+.bildband { padding-bottom: clamp(72px, 10vw, 140px); }
+.bildband-raster {
+  display: grid; grid-template-columns: 7fr 5fr; gap: clamp(24px, 4vw, 64px); align-items: start;
+}
+.bild { margin: 0; }
+.bild img {
+  width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; background: var(--tafel);
+  outline: 1px solid var(--linie); outline-offset: 10px;
+}
+.bild--gross img { aspect-ratio: 1; }
+.bild figcaption { margin-top: 22px; font-family: var(--cond); font-size: 1.02rem; color: var(--leise); }
+.bild--klein { margin-top: clamp(64px, 12vw, 180px); }
+
+@media (max-width: 700px) {
+  .bildband-raster { grid-template-columns: 1fr; gap: 0; }
+  .bild--gross { width: 86%; }
+  .bild--klein { width: 62%; margin: -34% 0 0 auto; position: relative; }
+  .bild--klein img { outline-color: var(--bronze); box-shadow: 0 0 0 10px #000; }
+  .bild--gross figcaption { max-width: 34%; }
+}
+
+.liefer { margin-top: 40px; }
 
 /* ---------- Besuch ---------- */
 
