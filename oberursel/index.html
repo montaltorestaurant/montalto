@@ -9,15 +9,17 @@
   <meta property="og:type" content="restaurant">
   <meta property="og:title" content="Pizzeria Montalto Oberursel">
   <meta property="og:description" content="Pizza, Pasta und Salate in Oberursel im Taunus. Seit 2009.">
-  <meta property="og:image" content="../assets/img/logo.png">
+  <meta property="og:image" content="https://restaurant-montalto.de/assets/img/logo.png">
+  <meta property="og:url" content="https://restaurant-montalto.de/oberursel/">
+  <link rel="canonical" href="https://restaurant-montalto.de/oberursel/">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="64x64" href="../assets/img/favicon-64.png">
   <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
   <link rel="preload" href="../assets/fonts/pagella-italic.woff" as="font" type="font/woff" crossorigin>
-  <link rel="stylesheet" href="../assets/css/style.css?v=20261009c">
-  <script src="../assets/js/standorte.js?v=20261009c" defer></script>
-  <script src="../assets/js/speisekarte.js?v=20261009c" defer></script>
-  <script src="../assets/js/main.js?v=20261009c" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261011b">
+  <script src="../assets/js/standorte.js?v=20261011b" defer></script>
+  <script src="../assets/js/speisekarte.js?v=20261011b" defer></script>
+  <script src="../assets/js/main.js?v=20261011b" defer></script>
 </head>
 <body data-standort="oberursel" data-root="../">
 
@@ -26,7 +28,7 @@
 <header class="kopf">
   <div class="wrap">
     <a class="kopf-logo" href="../" aria-label="Pizzeria Montalto, Startseite">
-      <img src="../assets/img/logo.png" alt="" width="46" height="46">
+      <img src="../assets/img/logo-160.webp" alt="" width="46" height="46">
       <span>Montalto</span>
     </a>
     <nav class="standort-wahl" aria-label="Standort wählen">
@@ -47,6 +49,10 @@
 <main id="inhalt">
 
   <section class="hero" aria-labelledby="hero-titel">
+    <figure class="hero-bild">
+      <img class="hero-foto" src="../assets/img/pizza-960.webp" srcset="../assets/img/pizza-640.webp 640w, ../assets/img/pizza-960.webp 960w, ../assets/img/pizza-1400.webp 1400w" sizes="(max-width: 700px) 100vw, 44vw" width="1400" height="1750" alt="Pizza mit frischen Tomaten, Mozzarella und Basilikum, daneben ein Glas Rotwein" fetchpriority="high" decoding="async">
+      <img class="hero-siegel" src="../assets/img/logo-480.webp" alt="Logo der Pizzeria Montalto, seit 2009" width="480" height="480" loading="lazy">
+    </figure>
     <div class="wrap">
       <div class="hero-inhalt">
         <div class="hero-text">
@@ -60,7 +66,6 @@
             </a>
           </div>
         </div>
-        <img class="hero-logo" src="../assets/img/logo.png" alt="Logo der Pizzeria Montalto, seit 2009" width="230" height="230">
       </div>
     </div>
     <h1 id="hero-titel" class="wrap"><span class="sr-only">Pizzeria </span><span class="marke">Montalto</span><span class="sr-only"> in Oberursel (Taunus)</span></h1>
@@ -73,6 +78,18 @@
         <p>Wer zum ersten Mal bei uns isst, fängt am besten mit einem davon an.</p>
       </div>
       <div class="haus-reihe" id="haus-reihe"></div>
+    </div>
+  </section>
+
+  <section class="bildband" aria-label="Eindrücke aus dem Restaurant">
+    <div class="wrap bildband-raster">
+      <figure class="bild bild--gross">
+        <img src="../assets/img/pasta-tisch-900.webp" srcset="../assets/img/pasta-tisch-600.webp 600w, ../assets/img/pasta-tisch-900.webp 900w, ../assets/img/pasta-tisch-1200.webp 1200w" sizes="(max-width: 700px) 86vw, 54vw" width="1200" height="1200" loading="lazy" decoding="async" alt="Tagliatelle mit Scampi und Tomaten, dahinter ein Glas Rotwein und die grüne Pflanzenwand im Restaurant">
+        <figcaption>Scampi mit Tagliatelle</figcaption>
+      </figure>
+      <figure class="bild bild--klein">
+        <img src="../assets/img/pasta-nah-800.webp" srcset="../assets/img/pasta-nah-480.webp 480w, ../assets/img/pasta-nah-800.webp 800w, ../assets/img/pasta-nah-1100.webp 1100w" sizes="(max-width: 700px) 66vw, 38vw" width="1100" height="1375" loading="lazy" decoding="async" alt="Nahaufnahme: Bandnudeln mit Garnelen, Tomatenwürfeln und frischer Petersilie">
+      </figure>
     </div>
   </section>
 
@@ -122,11 +139,12 @@
             <caption class="sr-only">Öffnungszeiten Oberursel</caption>
             <tbody data-zeiten></tbody>
           </table>
+          <div class="liefer" data-liefer></div>
         </div>
       </div>
 
       <aside class="anderer-standort" aria-labelledby="anders-titel">
-        <img src="../assets/img/logo.png" alt="" width="74" height="74">
+        <img src="../assets/img/logo-160.webp" alt="" width="74" height="74" loading="lazy">
         <div>
           <h3 id="anders-titel">Montalto gibt es auch in Frankfurt</h3>
           <p><span data-loc="frankfurt" data-fill="strasse">Europa-Allee 43</span>, <span data-loc="frankfurt" data-fill="plzOrt">60327 Frankfurt am Main</span></p>
@@ -159,7 +177,7 @@
   <div class="wrap">
     <div class="fuss-raster">
       <div class="fuss-marke">
-        <img src="../assets/img/logo.png" alt="" width="72" height="72">
+        <img src="../assets/img/logo-160.webp" alt="" width="72" height="72" loading="lazy">
         <p>Pizzeria Montalto<br>seit 2009</p>
       </div>
       <div>
