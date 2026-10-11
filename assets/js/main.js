@@ -3,7 +3,14 @@
   "use strict";
 
   var STANDORTE = window.STANDORTE || {};
-  var KARTE = window.SPEISEKARTE || [];
+  var PREIS_KEY = (document.body.getAttribute("data-standort") || "frankfurt") === "oberursel" ? "ou" : "ffm";
+  function preisVon(g) { var p = g[PREIS_KEY]; return typeof p === "number" ? p : null; }
+  /* Speisekarte für diesen Standort: Gerichte ohne Preis hier ausblenden */
+  var KARTE = (window.SPEISEKARTE || []).map(function (k) {
+    var kopie = {}; for (var x in k) kopie[x] = k[x];
+    kopie.gerichte = k.gerichte.filter(function (g) { return preisVon(g) !== null; });
+    return kopie;
+  }).filter(function (k) { return k.gerichte.length; });
   var body = document.body;
   var aktuell = body.getAttribute("data-standort") || "frankfurt";
   var root = body.getAttribute("data-root") || "";
@@ -110,6 +117,19 @@
     }).join("");
   });
 
+  /* ---------- Liefergebühren ---------- */
+
+  $$("[data-liefer]").forEach(function (el) {
+    var s = ort(el);
+    if (!s || !s.lieferung || !s.lieferung.length) { el.remove(); return; }
+    var fmt = new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" });
+    el.innerHTML = '<h3 class="zeiten-titel">Liefergebühren</h3>' +
+      '<table class="zeiten"><caption class="sr-only">Liefergebühren nach Gebiet</caption><tbody>' +
+      s.lieferung.map(function (z) {
+        return '<tr><th scope="row">' + esc(z[0]) + "</th><td>" + fmt.format(z[1]) + "</td></tr>";
+      }).join("") + "</tbody></table>";
+  });
+
   /* ---------- Strukturierte Daten für Google ---------- */
 
   (function () {
@@ -161,7 +181,7 @@
     return '<li class="gericht" data-tags="' + tags.join(" ") + '" data-suche="' + esc(suchtext) + '">' +
       '<span class="g-nr">' + esc(g.nr) + "</span>" +
       '<h4 class="g-name">' + esc(g.name) + zeichen + "</h4>" +
-      '<span class="g-preis">' + euro.format(g.preis) + "</span>" +
+      '<span class="g-preis">' + euro.format(preisVon(g)) + "</span>" +
       (g.zutaten ? '<p class="g-zutaten">' + esc(g.zutaten) + "</p>" : "") +
       "</li>";
   }
@@ -271,7 +291,7 @@
           '<p class="haus-art">' + (ART[k.id] || k.titel) + " Nr. " + esc(g.nr) + "</p>" +
           "<h3>" + esc(g.name) + "</h3>" +
           '<p class="zutaten">' + esc(g.zutaten) + "</p>" +
-          '<p class="haus-preis">' + euro.format(g.preis) + "</p>" +
+          '<p class="haus-preis">' + euro.format(preisVon(g)) + "</p>" +
           "</article>";
       });
     });

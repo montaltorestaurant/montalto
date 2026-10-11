@@ -6,6 +6,9 @@
 
    Öffnungszeiten: pro Wochentag eine Liste von Zeitfenstern.
    []  = Ruhetag
+
+   lieferung: Liefergebiete mit Liefergebühr in Euro
+   (weglassen, wenn keine Gebühren angezeigt werden sollen)
    ========================================================= */
 
 window.STANDORTE = {
@@ -44,6 +47,12 @@ window.STANDORTE = {
     tel: "+4961722663244",
     seite: "oberursel/",
     reservierung: false,    // laut Google: keine Reservierungen
+    lieferung: [
+      ["Oberstedten", 1.0],
+      ["Oberursel", 2.0],
+      ["Bad Homburg", 2.0],
+      ["Nieder-Eschbach, Kalbach, Riedberg", 4.5]
+    ],
     zeiten: {
       mo: [["11:00", "15:00"], ["17:00", "21:00"]],
       di: [["11:00", "15:00"], ["17:00", "21:00"]],
