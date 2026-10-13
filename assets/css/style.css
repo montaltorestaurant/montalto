@@ -161,6 +161,9 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
 }
 .kopf-nav > a:not(.btn):hover { color: var(--gold); border-bottom-color: var(--bronze); }
 .kopf-nav .btn { min-height: 42px; }
+.kopf-nav > a.kopf-tel { display: inline-flex; align-items: center; gap: 8px; }
+.kopf-tel svg { width: 17px; height: 17px; color: var(--gold); }
+@media (max-width: 1080px) { .kopf-nav { gap: 20px; } .kopf-tel span { display: none; } }
 
 @media (max-width: 860px) {
   .kopf-nav { display: none; }
@@ -272,6 +275,26 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
 .abschnitt-kopf p { color: var(--leise); max-width: 40rem; margin: 0; }
 .abschnitt-kopf a { color: var(--gold); text-underline-offset: 3px; }
 
+/* ---------- Einleitung ---------- */
+
+.intro { border-top: 1px solid var(--linie-zart); }
+.intro-raster {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(40px, 6vw, 96px); align-items: center;
+}
+.intro-text p { color: var(--text); max-width: 34rem; }
+.intro-text .abschnitt-titel { margin-bottom: clamp(24px, 3vw, 36px); }
+.intro-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.intro-hinweis { margin-top: 14px; color: var(--leise); font-size: .98rem; }
+.intro-bild img { aspect-ratio: 3 / 2; }
+
+.intro--text .intro-raster { align-items: start; }
+.intro--text .abschnitt-titel { margin: 0; }
+
+@media (max-width: 860px) {
+  .intro-raster { grid-template-columns: 1fr; }
+}
+
 /* ---------- Hausgerichte ---------- */
 
 .haus { border-top: 1px solid var(--linie-zart); padding-bottom: clamp(32px, 5vw, 64px); }
@@ -281,7 +304,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
   border-top: 1px solid var(--linie); border-bottom: 1px solid var(--linie);
 }
 .haus-gericht {
-  padding: 36px 32px 34px; display: grid; grid-template-rows: auto auto 1fr auto; gap: 8px;
+  padding: 36px 32px 34px; display: grid; grid-template-rows: auto auto 1fr; gap: 8px;
 }
 .haus-gericht p { margin: 0; }
 .haus-gericht + .haus-gericht { border-left: 1px solid var(--linie); }
@@ -291,7 +314,6 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
   color: var(--champagner);
 }
 .haus-gericht p.zutaten { color: var(--leise); font-size: 1.02rem; margin: 4px 0 14px; }
-.haus-preis { font-family: var(--cond); font-weight: 700; font-size: 1.35rem; color: var(--gold); }
 
 @media (max-width: 820px) {
   .haus-reihe { grid-template-columns: 1fr; }
@@ -463,11 +485,10 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
 .bild--klein { margin-top: clamp(64px, 12vw, 180px); }
 
 @media (max-width: 700px) {
-  .bildband-raster { grid-template-columns: 1fr; gap: 0; }
-  .bild--gross { width: 86%; }
-  .bild--klein { width: 62%; margin: -34% 0 0 auto; position: relative; }
-  .bild--klein img { outline-color: var(--bronze); box-shadow: 0 0 0 10px #000; }
-  .bild--gross figcaption { max-width: 34%; }
+  .bildband-raster { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .bild img, .bild--gross img { aspect-ratio: 4 / 5; outline-offset: 6px; }
+  .bild--klein { margin-top: 0; }
+  .bild figcaption { margin-top: 16px; font-size: .95rem; }
 }
 
 .liefer { margin-top: 40px; }
