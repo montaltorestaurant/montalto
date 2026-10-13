@@ -43,6 +43,11 @@
   });
   $$("[data-tel]").forEach(function (el) { var s = ort(el); if (s) el.href = "tel:" + s.tel; });
   $$("[data-maps]").forEach(function (el) { var s = ort(el); if (s) el.href = mapsUrl(s); });
+  $$("[data-reservieren]").forEach(function (el) {
+    var s = ort(el);
+    if (s && typeof s.reservierung === "string") el.href = s.reservierung;
+    else el.remove();
+  });
   function instaUrl(s) { return "https://www.instagram.com/" + s.instagram + "/"; }
   $$("[data-insta]").forEach(function (el) { var s = ort(el); if (s && s.instagram) el.href = instaUrl(s); });
 
@@ -147,7 +152,7 @@
       telephone: s.tel,
       servesCuisine: ["Italienisch", "Pizza", "Pasta"],
       priceRange: "€",
-      acceptsReservations: s.reservierung !== false,
+      acceptsReservations: typeof s.reservierung === "string" ? s.reservierung : false,
       address: { "@type": "PostalAddress", streetAddress: s.strasse, postalCode: s.plz, addressLocality: s.ort, addressCountry: "DE" },
       openingHoursSpecification: spec,
       hasMap: mapsUrl(s),
@@ -291,7 +296,6 @@
           '<p class="haus-art">' + (ART[k.id] || k.titel) + " Nr. " + esc(g.nr) + "</p>" +
           "<h3>" + esc(g.name) + "</h3>" +
           '<p class="zutaten">' + esc(g.zutaten) + "</p>" +
-          '<p class="haus-preis">' + euro.format(preisVon(g)) + "</p>" +
           "</article>";
       });
     });

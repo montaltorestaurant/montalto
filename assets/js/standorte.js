@@ -7,6 +7,7 @@
    Öffnungszeiten: pro Wochentag eine Liste von Zeitfenstern.
    []  = Ruhetag
 
+   reservierung: Link zur Online-Reservierung, oder false = keine Reservierung
    lieferung: Liefergebiete mit Liefergebühr in Euro
    (weglassen, wenn keine Gebühren angezeigt werden sollen)
    ========================================================= */
@@ -23,7 +24,7 @@ window.STANDORTE = {
     instagram: "montaltoffm",
     tel: "+496998191775",
     seite: "",              // Hauptseite
-    reservierung: true,
+    reservierung: "https://www.opentable.com/r/pizzeria-montalto-frankfurt-am-main",
     zeiten: {
       mo: [["11:00", "15:00"], ["17:00", "22:00"]],
       di: [["11:00", "15:00"], ["17:00", "22:00"]],
